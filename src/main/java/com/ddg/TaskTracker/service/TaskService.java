@@ -20,4 +20,8 @@ public class TaskService {
     public List<Task> getAllTasks() {
         return repo.findAll();
     }
+
+    public Task getTaskById(int id) {
+        return repo.findById(id).orElse(null);
+    }
 }

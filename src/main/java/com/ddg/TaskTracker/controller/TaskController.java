@@ -3,10 +3,7 @@ package com.ddg.TaskTracker.controller;
 import com.ddg.TaskTracker.model.Task;
 import com.ddg.TaskTracker.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,12 @@ public class TaskController {
     @GetMapping("tasks")
     public List<Task> getAllTasks() {
         return service.getAllTasks();
+    }
+
+//    Get Task By Id
+    @GetMapping("task/{id}")
+    public Task getTaskById(@PathVariable int id) {
+        return service.getTaskById(id);
     }
 
 }
