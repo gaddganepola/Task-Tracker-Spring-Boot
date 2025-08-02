@@ -24,4 +24,15 @@ public class TaskService {
     public Task getTaskById(int id) {
         return repo.findById(id).orElse(null);
     }
+
+    public String deleteTaskById(int id) {
+        Task t1 = repo.findById(id).orElse(null);
+        if (t1 == null) {
+            return "No such task found";
+        }else {
+            repo.deleteById(id);
+            t1 = repo.findById(id).orElse(null);
+            return "Task deleted successfully";
+        }
+    }
 }
